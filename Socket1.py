@@ -1,24 +1,14 @@
 import socket
-import ssl
 
-# Create an SSL context.
-context = ssl.create_default_context()
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Create a TCP socket.
+mysock.connect(('data.pr4e.org', 80))  # Connect to the server.
+cmd = 'GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n'.encode()  # Prepare the GET request.
+mysock.send(cmd)  # Send the request.
 
-# Create a socket and wrap it with SSL.
-mysocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-ssl_socket = context.wrap_socket(mysocket, server_hostname='data.pr4e.org')
-ssl_socket.connect(('data.pr4e.org', 443))
-
-# Send the correct HTTPS GET request.
-cmd = 'GET /romeo.txt HTTP/1.1\r\nHost: data.pr4e.org\r\nConnection: close\r\n\r\n'.encode()
-ssl_socket.send(cmd)
-
-# Receive and print the response.
 while True:
-    data = ssl_socket.recv(512)
-    if len(data) < 1:
+    data = mysock.recv(512)  # Receive data from the server in chunks.
+    if len(data) < 1:  # Break if no data is received.
         break
-    print(data.decode())
+    print(data.decode(), end='')  # Decode and print the received data.
 
-# Close the SSL-wrapped socket.
-ssl_socket.close()
+mysock.close()  # Close the connection.
