@@ -14,9 +14,7 @@ def parse_comments(html):
     """Parse HTML and return the sum of numbers in the comments."""
     soup = BeautifulSoup(html, "html.parser")  # Parse the HTML with BeautifulSoup.
     # Sum the numbers in all <span class='comments'> within <tr> tags.
-    total = sum(int(span.text) for tag in soup.find_all('tr') 
-                for span in tag.find_all('span', class_='comments') 
-                if span)  # Only include spans that exist.
+    total = sum(int(span.text) for tag in soup.find_all('tr') for span in tag.find_all('span', class_='comments') if span)  # Only include spans that exist.
     return total  # Return the total sum of comments.
 
 def main():
