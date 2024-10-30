@@ -11,7 +11,7 @@ def computepay(hours, rate):
     else:
         # Calculate pay for hours worked if 40 or less.
         pay = hours * rate
-    
+
     # Return the calculated pay.
     return pay
 
