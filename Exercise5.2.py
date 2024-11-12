@@ -5,11 +5,11 @@ numbers = []
 while True:
     # Prompt the user to enter a number.
     user_input = input("Enter a number: ")
-    
+
     # If the user inputs 'done', exit the loop.
     if user_input == 'done':
         break
-    
+
     try:
         # Attempt to convert the user input to an integer.
         number = int(user_input)
