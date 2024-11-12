@@ -12,6 +12,6 @@ for line in email_file:
     # Check if the line has fewer than 3 words or does not start with 'From'.
     if len(words_list) < 3 or words_list[0] != 'From':
         continue  # Skip to the next line if the condition is met.
-    
+
     # Print the third word in the line (the day of the week).
     print(words_list[2])
