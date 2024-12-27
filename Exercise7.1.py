@@ -1,5 +1,5 @@
-# Open the file 'mbox-short.txt' for reading.
-filename = open('mbox-short.txt')
+# Open the file 'mbox_short.txt' for reading.
+filename = open('mbox_short.txt')
 
 # Iterate over each line in the file.
 for line in filename:
