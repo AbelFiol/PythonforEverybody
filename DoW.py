@@ -1,11 +1,11 @@
-# Open the file named 'mbox-short.txt'.
-email_file = open('mbox-short.txt')
+# Open the file named 'mbox_short.txt'.
+email_file = open('mbox_short.txt')
 
 # Iterate through each line in the file.
 for line in email_file:
     # Remove any trailing whitespace from the line.
     stripped_line = line.rstrip()
-    
+
     # Split the line into words based on whitespace.
     words_list = stripped_line.split()
 
